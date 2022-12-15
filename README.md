@@ -2,11 +2,10 @@
 ENTREGA PROYECTO FINAL VIVA AIR
 
 ## Alternativa metaheurística de dos fases para el Problema de Asignación de Asientos: caso de estudio Viva Air.
-#### Julio Mario Daza-Escorcia a, Juan Diego Prada b
+#### Julio Mario Daza-Escorcia a
 
 a Universidad de los Andes, Bogotá, Colombia, jm.dazae@uniandes.edu.co
 
-b Universidad de los Andes, Bogotá, Colombia, jd.pradal@uniandes.edu.co 
 
 
 ### RESUMEN
