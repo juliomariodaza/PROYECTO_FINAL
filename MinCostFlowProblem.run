@@ -1,0 +1,21 @@
+# ------------------------------------------------------------------------------------------- #
+# -------------------------------- Minimum Cost Flow Problem -------------------------------- #
+# ------------------------------------------------------------------------------------------- #
+# -------------------------------- Julio Mario Daza Escorcia -------------------------------- #
+# ------------------------------------------------------------------------------------------- #
+
+reset;
+option solver_msg 0;						# Silenciar el resultado de AMPL por defecto.
+option solver gurobi;						# Invocar el solver CPLEX.
+
+model MinCostFlowProblem.mod;
+data MinCostFlowProblem.dat;
+
+solve;										# Resolver el MCFP (Minimum Cost Flow Problem).
+
+# CORRER INSTANCIA 2
+# reset data;
+# data MinCostFlowProblem2.dat;
+# update data;
+# solve;										# Resolver el MCFP (Minimum Cost Flow Problem).
+

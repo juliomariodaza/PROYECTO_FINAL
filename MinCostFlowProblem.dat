@@ -1,0 +1,67 @@
+# ------------------------------------------------------------------------------------------- #
+# -------------------------------- Minimum Cost Flow Problem -------------------------------- #
+# ------------------------------------------------------------------------------------------- #
+# -------------------------------- Julio Mario Daza Escorcia -------------------------------- #
+# ------------------------------------------------------------------------------------------- #
+
+param NODOS:=4;								# Número de Nodos.
+
+param DEMANDA:=								# Demandas de los Nodos.
+		1  2
+		2  0
+		3  0
+		4  -2;		
+
+param: ARCOS: COSTO	CAPACIDAD:=						# Costo de enviar flujo por los Arcos (i,j).
+		1 2	1 1	
+		1 3	5 3
+		2 3	1 2
+		3 4	0 3
+		2 4	4 2;
+
+#param: CAPACIDAD:=							# Flujo Máximo permitido en los Arcos (i,j). 
+#		1 2 1	
+#		1 3	3
+#		2 3	2
+#		3 4	3
+#		2 4	2;
+
+option solver_msg 0;						# Silenciar el resultado de AMPL por defecto.
+option solver gurobi;						# Invocar el solver CPLEX.
+solve;										# Resolver el MCFP (Minimum Cost Flow Problem).
+
+printf "\nTotal CPU time:%10.2fs", _ampl_time + _total_solve_time + _total_shell_time ;
+#printf "\nElapsed time :%10.2fs\n", _solve_elapsed_time ;
+
+printf "\n\n\t\t |*****************************************|";
+printf "\n\t\t |******* Minimum Cost Flow Problem *******|";
+printf "\n\t\t |******* Julio Mario Daza Escorcia *******|";
+printf "\n\t\t |******* Flujo en Redes - UNIANDES *******|";
+printf "\n\t\t |*****************************************|\n\n";
+
+for {(i,j) in ARCOS: X[i,j] > 0} 			# Mostrarmos el valor de las Vbles de Flujo.
+{
+	printf "\t\t\t-> Flujo X del Arco (%d,%d) = %g\n", i,j,X[i,j];
+}
+printf "\t\t\t-> FO MÍNIMO ", COSTO_TOTAL; # Mostrar el valor de la FO: Min MCF.
+display COSTO_TOTAL;
+printf "\n\t\t |*****************************************|";
+printf "\n\t\t |******* Modelo en Forma Explícita *******|";
+printf "\n\t\t |*****************************************|\n\n";
+
+expand;										# Mostrar modelo matemático en forma explícita.
+
+printf "\n\t\t |*****************************************|";
+printf "\n\t\t |******* Minimum Cost Flow Problem *******|";
+printf "\n\t\t |******* Julio Mario Daza Escorcia *******|";
+printf "\n\t\t |******* Flujo en Redes - UNIANDES *******|";
+printf "\n\t\t |*****************************************|\n\n";
+
+
+
+
+# ------------------------------------------------------------------------------------------- #
+# -------------------------------- Minimum Cost Flow Problem -------------------------------- #
+# ------------------------------------------------------------------------------------------- #
+# -------------------------------- Julio Mario Daza Escorcia -------------------------------- #
+# ------------------------------------------------------------------------------------------- #
